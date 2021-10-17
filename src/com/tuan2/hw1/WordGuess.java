@@ -47,7 +47,7 @@ public class WordGuess {
         System.out.println("The secret word is: " + SECRET_WORD);
 
         System.out.print("Key in one character or your guess word: ");
-        guess = scan.next();
+        guess = scan.next().toLowerCase();
 
         while (true) {
             if (guess.length() == SECRET_WORD.length()) {
@@ -76,7 +76,7 @@ public class WordGuess {
             turn++;
 
             System.out.print("Key in one character or your guess word: ");
-            guess = scan.next();
+            guess = scan.next().toLowerCase();
         }
 
         System.out.println("Congratulation!");
