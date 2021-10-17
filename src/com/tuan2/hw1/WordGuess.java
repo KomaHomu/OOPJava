@@ -44,7 +44,7 @@ public class WordGuess {
         Arrays.fill(arr, '-');
         temp = new StringBuilder(new String(arr));
 
-        System.out.println("The secret word is: " + SECRET_WORD);
+        //System.out.println("The secret word is: " + SECRET_WORD); testing-only
 
         System.out.print("Key in one character or your guess word: ");
         guess = scan.next().toLowerCase();
@@ -55,6 +55,7 @@ public class WordGuess {
                     break;
                 } else {
                     System.out.println("Incorrect word.");
+                    turn++;
                 }
             }
 
@@ -70,13 +71,17 @@ public class WordGuess {
                 if (temp.toString().equals(SECRET_WORD)) {
                     break;
                 }
-            }
-            System.out.println("Trial " + turn + ": " + temp);
 
-            turn++;
+                System.out.println("Trial " + turn + ": " + temp);
+                turn++;
+            }
 
             System.out.print("Key in one character or your guess word: ");
             guess = scan.next().toLowerCase();
+        }
+
+        if (guess.length() < SECRET_WORD.length() && guess.length() > 1) {
+            System.out.println("Incorrect input length.");
         }
 
         System.out.println("Congratulation!");

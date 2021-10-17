@@ -10,7 +10,7 @@ public class NumberGuess {
         Scanner scan = new Scanner(System.in);
         Random rd = new Random();
 
-        final int SECRET_NUMBER = rd.nextInt(0,100);
+        final int SECRET_NUMBER = rd.nextInt(0, 100);
         int guess;
         int count = 1;
 
@@ -37,6 +37,7 @@ public class NumberGuess {
             System.out.println("You got it in " + count + " trials!");
         }
     }
+
     public static void main(String[] args) {
 
         guessingGame();
