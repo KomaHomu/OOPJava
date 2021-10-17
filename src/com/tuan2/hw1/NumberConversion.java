@@ -6,9 +6,15 @@ public class NumberConversion {
 
     public static String toRadix(String in, int inRadix, int outRadix) {
 
-        int value = Integer.parseInt(in.toUpperCase(), inRadix);
+        try {
+            int value = Integer.parseInt(in.toUpperCase(), inRadix);
 
-        return Integer.toString(value, outRadix);
+            return Integer.toString(value, outRadix);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+
+            return "Incorrect input.";
+        }
     }
 
     public static void main(String[] args) {
@@ -29,7 +35,11 @@ public class NumberConversion {
 
         result = toRadix(str, inRadix, outRadix);
 
-        System.out.println(str + " in radix " + inRadix + " is " + result + " in radix " + outRadix);
+        if (result.equals("Incorrect input.")) {
+            System.out.println(result);
+        } else {
+            System.out.println(str + " in radix " + inRadix + " is " + result + " in radix " + outRadix);
+        }
 
         scan.close();
     }
