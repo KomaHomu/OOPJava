@@ -1,6 +1,7 @@
 package com.tuan2.hw3;
 
 public class SelectionSort {
+    
     public static void selectionSort(int[] array) {
 
         int length = array.length;
