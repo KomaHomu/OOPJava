@@ -1,6 +1,7 @@
 package com.tuan2.hw3;
 
 public class InsertionSort {
+    
     public static void insertionSort(int[] array) {
 
         int length = array.length;
