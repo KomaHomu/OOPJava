@@ -3,20 +3,15 @@ package com.tuan1.hw3;
 import java.util.Scanner;
 
 public class TestPalindromicPhrase {
+
     public static boolean isPalindrome(String text) {
 
         text = text.toUpperCase();
 
-        int strLength;
-        char forwardChar;
-        char backwardChar;
-
-        strLength = text.length();
-
         int fIdx = 0; //forwards' index
-        int bIdk = strLength - 1; //backwards' index
-        forwardChar = text.charAt(fIdx);
-        backwardChar = text.charAt(bIdk);
+        int bIdk = text.length() - 1; //backwards' index
+        char forwardChar = text.charAt(fIdx);
+        char backwardChar = text.charAt(bIdk);
 
         while (fIdx <= bIdk) {
             while (!Character.isLetter(forwardChar)) {
