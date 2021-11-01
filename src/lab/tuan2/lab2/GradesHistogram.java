@@ -11,16 +11,22 @@ public class GradesHistogram {
 
         Scanner scan = new Scanner(System.in);
 
-        final int NUM_STUDENTS;
+        int numberOfStudent;
 
-        System.out.print("Enter the number of students : ");
-        NUM_STUDENTS = scan.nextInt();
-        grades = new int[NUM_STUDENTS];
+        do {
+            System.out.print("Enter the number of students : ");
+            numberOfStudent = scan.nextInt();
+        } while (numberOfStudent <= 0);
+
+        grades = new int[numberOfStudent];
 
         //read array
         for (int index = 1; index <= grades.length; index++) {
-            System.out.printf("Enter the grade for student %d : ", index);
-            grades[index - 1] = scan.nextInt();
+
+            do {
+                System.out.printf("Enter the grade for student %d : ", index);
+                grades[index - 1] = scan.nextInt();
+            } while (grades[index - 1] <= 0);
         }
 
         scan.close();

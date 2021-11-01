@@ -4,6 +4,10 @@ public class Matrix {
 
     public static void print(int[][] matrix) {
 
+        if (isNull(matrix)) {
+            return;
+        }
+
         for (int[] row : matrix) {
             for (int element : row) {
                 System.out.print(element + "\t"); // print each element from a corresponding row
@@ -13,6 +17,10 @@ public class Matrix {
     }
 
     public static void print(double[][] matrix) {
+
+        if (isNull(matrix)) {
+            return;
+        }
 
         for (double[] row : matrix) {
             for (double element : row) {

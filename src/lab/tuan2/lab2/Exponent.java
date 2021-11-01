@@ -18,13 +18,10 @@ public class Exponent {
 
         Scanner scan = new Scanner(System.in);
 
-        int exp;
-        int base;
-
         System.out.print("Enter the base: ");
-        exp = scan.nextInt();
+        int exp = scan.nextInt();
         System.out.print("Enter the exponent: ");
-        base = scan.nextInt();
+        int base = scan.nextInt();
 
         System.out.println(base + " raises to the power of " + exp + " is: " + exponent(base, exp));
 

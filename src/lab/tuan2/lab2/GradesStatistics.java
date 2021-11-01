@@ -11,22 +11,32 @@ public class GradesStatistics {
 
         Scanner scan = new Scanner(System.in);
 
-        final int NUM_STUDENTS;
+        int numberOfStudent;
 
-        System.out.print("Enter the number of students : ");
-        NUM_STUDENTS = scan.nextInt();
-        grades = new int[NUM_STUDENTS];
+        do {
+            System.out.print("Enter the number of students : ");
+            numberOfStudent = scan.nextInt();
+        } while (numberOfStudent <= 0);
+
+        grades = new int[numberOfStudent];
 
         //read array
         for (int index = 1; index <= grades.length; index++) {
-            System.out.printf("Enter the grade for student %d : ", index);
-            grades[index - 1] = scan.nextInt();
+
+            do {
+                System.out.printf("Enter the grade for student %d : ", index);
+                grades[index - 1] = scan.nextInt();
+            } while (grades[index - 1] <= 0);
         }
 
         scan.close();
     }
 
     public static void print(int[] array) {
+
+        if (array == null) {
+            return;
+        }
 
         System.out.print("[" + array[0]);
         for (int index = 1; index < array.length; index++) {
@@ -37,32 +47,39 @@ public class GradesStatistics {
 
     public static double average(int[] array) {
 
-        final int NUM_STUDENTS = array.length;
+        if (array == null) {
+            return -1;
+        } else if (array.length == 1) {
+            return array[0];
+        }
 
         int sumOfGrades = 0;
-        double avgGrade;
 
         for (Integer grade : array) {
             sumOfGrades += grade;
         }
 
-        avgGrade = (sumOfGrades * 100.00 / 100.00) / NUM_STUDENTS;
-
-        return avgGrade;
+        return (sumOfGrades * 100.00 / 100.00) / array.length;
     }
 
     public static double median(int[] array) {
 
-        final int NUM_STUDENTS = array.length;
+        if (array == null) {
+            return -1;
+        } else if (array.length == 1) {
+            return array[0];
+        }
+
+        int numberOfStudent = array.length;
 
         double median;
 
         Arrays.sort(array);
 
-        if (NUM_STUDENTS % 2 == 0) {
-            median = (array[NUM_STUDENTS / 2 - 1] + array[NUM_STUDENTS / 2]) * 100.00 / 100.00 / 2;
+        if (numberOfStudent % 2 == 0) {
+            median = (array[numberOfStudent / 2 - 1] + array[numberOfStudent / 2]) * 100.00 / 100.00 / 2;
         } else {
-            median = array[NUM_STUDENTS / 2 + 1];
+            median = array[numberOfStudent / 2 + 1];
         }
 
         return median;
@@ -70,9 +87,13 @@ public class GradesStatistics {
 
     public static int max(int[] array) {
 
-        int max;
+        if (array == null) {
+            return -1;
+        } else if (array.length == 1) {
+            return array[0];
+        }
 
-        max = array[0];
+        int max = array[0];
 
         for (Integer grade : array) {
             if (grade > max) {
@@ -85,9 +106,13 @@ public class GradesStatistics {
 
     public static int min(int[] array) {
 
-        int min;
+        if (array == null) {
+            return -1;
+        } else if (array.length == 1) {
+            return array[0];
+        }
 
-        min = array[0];
+        int min = array[0];
 
         for (Integer grade : array) {
             if (grade < min) {
@@ -100,17 +125,20 @@ public class GradesStatistics {
 
     public static double stdDev(int[] array) {
 
-        final int NUM_STUDENTS = array.length;
+        if (array == null) {
+            return -1;
+        } else if (array.length == 1) {
+            return 0;
+        }
 
         double stdDev = 0.0;
-        double avgGrades;
 
-        avgGrades = average(array);
+        double avgGrades = average(array);
 
         for (Integer grade : array) {
             stdDev += Math.pow(grade - avgGrades, 2);
         }
-        stdDev = Math.sqrt(stdDev / NUM_STUDENTS) * 100.00 / 100.00;
+        stdDev = Math.sqrt(stdDev / array.length);
 
         return stdDev;
     }

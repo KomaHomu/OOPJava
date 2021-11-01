@@ -3,13 +3,17 @@ package lab.tuan2.lab2;
 import java.util.Scanner;
 
 public class MagicSum {
+
+    public static boolean validateInput(String text) {
+
+        if (text.equals("-1")) {
+            return true;
+        } else return text.matches("[0-9]+");
+    }
+
     public static boolean hasEight(int number) {
 
-        String numAsStr;
-
-        numAsStr = Integer.toString(number);
-
-        return numAsStr.matches("(?=.*8)[0-9]+");
+        return Integer.toString(number).matches("(?=.*8)[0-9]+");
     }
 
     public static void main(String[] args) {
@@ -22,7 +26,16 @@ public class MagicSum {
 
         do {
             System.out.print("Enter a positive integer (or -1 to end): ");
-            number = scan.nextInt();
+            String input = scan.next();
+
+            if (validateInput(input)) {
+                number = Integer.parseInt(input);
+            } else {
+                System.out.println("Invalid input. Please re-enter.");
+                number = 0;
+                continue;
+            }
+
             if (hasEight(number)) {
                 magicSum += number;
             }
