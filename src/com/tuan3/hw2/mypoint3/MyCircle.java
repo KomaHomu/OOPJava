@@ -63,7 +63,7 @@ public class MyCircle {
     }
 
     public String toString() {
-        return "MyCircle[radius = " + getRadius() + ", center = " + getCenter();
+        return "MyCircle[radius = " + getRadius() + ", center = " + getCenter() + "]";
     }
 
     public double getArea() {
@@ -75,6 +75,6 @@ public class MyCircle {
     }
 
     public double distance(MyCircle another) {
-        return (double) another.getRadius() + getRadius();
+        return getCenter().distance(another.getCenter());
     }
 }
