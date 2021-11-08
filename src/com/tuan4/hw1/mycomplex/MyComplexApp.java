@@ -5,11 +5,17 @@ import java.util.Scanner;
 public class MyComplexApp {
 
     public static void printMag(MyComplex complex) {
+        if (complex == null) {
+            return;
+        }
 
         System.out.println("Complex " + complex + "'s magnitude is: " + complex.magnitude());
     }
 
     public static void printSum(MyComplex complex1, MyComplex complex2) {
+        if (complex1 == null || complex2 == null) {
+            return;
+        }
 
         System.out.print(complex1 + " + " + complex2 + " = ");
         System.out.print(complex1.add(complex2));
@@ -17,11 +23,17 @@ public class MyComplexApp {
     }
 
     public static void printSumNew(MyComplex complex1, MyComplex complex2) {
+        if (complex1 == null || complex2 == null) {
+            return;
+        }
 
         System.out.println(complex1 + " + " + complex2 + " = " + complex1.addNew(complex2) + " (result-only)\n");
     }
 
     public static void printEquals(MyComplex complex1, MyComplex complex2) {
+        if (complex1 == null || complex2 == null) {
+            return;
+        }
 
         String isEqual = "NOT ";
 
@@ -33,6 +45,9 @@ public class MyComplexApp {
     }
 
     public static void printPure(MyComplex complex) {
+        if (complex == null) {
+            return;
+        }
 
         String isPure = "NOT ";
 
