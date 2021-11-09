@@ -47,12 +47,11 @@ public class MyTime {
 
     public void setHour(int hour) {
         try {
-            if (hour < 0 || hour > 23) {
+            if (hour >= 0 && hour <= 23) {
+                this.hour = hour;
+            } else {
                 System.out.println("Hour value is out of range.");
-                return;
             }
-
-            this.hour = hour;
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid hour!");
         }
@@ -64,12 +63,11 @@ public class MyTime {
 
     public void setMinute(int minute) {
         try {
-            if (minute < 0 || minute > 59) {
+            if (minute >= 0 && minute <= 59) {
+                this.minute = minute;
+            } else {
                 System.out.println("Minute value is out of range.");
-                return;
             }
-
-            this.minute = minute;
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid minute!");
         }
@@ -81,12 +79,11 @@ public class MyTime {
 
     public void setSecond(int second) {
         try {
-            if (second < 0 || second > 59) {
-                System.out.println("Minute value is out of range.");
-                return;
+            if (second >= 0 && second <= 59) {
+                this.second = second;
+            } else {
+                System.out.println("Second value is out of range.");
             }
-
-            this.second = second;
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid second!");
         }
