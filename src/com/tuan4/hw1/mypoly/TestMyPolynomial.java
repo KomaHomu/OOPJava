@@ -10,7 +10,7 @@ public class TestMyPolynomial {
         System.out.println(polynomial1);
         System.out.println(polynomial2);
         System.out.println("Degree: " + polynomial1.getDegree());
-        System.out.println("Evaluate: " + polynomial1.evaluate(1.0));
+        System.out.println("Evaluate: " + polynomial1.evaluate(2.0));
         System.out.println("Added with poly 2: " + polynomial1.add(polynomial2));
         System.out.println("Multiplied with poly 2: " + polynomial1.multiply(polynomial2));
     }
